@@ -1,0 +1,197 @@
+html {
+  font-size: 16px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: #f6f7f8;
+  color: #111;
+}
+body {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+/* KARTA zawiera nagłówek i formularz – wspólny padding = idealne wyrównanie */
+.card {
+  padding: 24px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* nagłówek w środku karty */
+.headder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+#contest {
+  margin: 0;
+}
+.moon {
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+input,
+select {
+  font-size: 16px;
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background: #fff;
+  color: #111;
+}
+input::placeholder {
+  font-size: 16px;
+}
+input[type='date'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  position: relative;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='black' viewBox='0 0 24 24'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14v11z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  padding-right: 36px; /* miejsce na ikonę */
+  color-scheme: light dark;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 100%;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  width: auto;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+  accent-color: #4caf50;
+}
+
+select {
+  cursor: pointer;
+}
+
+input[type='color'] {
+  height: 44px;
+  padding: 1px;
+  cursor: pointer;
+  background-color: #e9e9e9;
+}
+
+fieldset {
+  margin-top: 14px;
+  border: 3px solid #ddd;
+}
+legend {
+  padding: 0 10px;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.agree {
+  display: flex;
+  user-select: none;
+  margin-left: 2px;
+}
+
+input[type='submit'] {
+  padding: 16px;
+  border-radius: 6px;
+  background-color: #4caf50;
+  border: transparent;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s ease-in-out;
+}
+input[type='submit']:hover {
+  background-color: #45a049;
+}
+
+body:has(#theme-toggle:checked) .card {
+  background: #1c1d1c;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+body:has(#theme-toggle:checked) input[type='date'] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14v11z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  padding-right: 36px;
+}
+
+body:has(#theme-toggle:checked) label,
+body:has(#theme-toggle:checked) legend {
+  color: #eef1f4;
+}
+
+body:has(#theme-toggle:checked) input,
+body:has(#theme-toggle:checked) select {
+  background: #383938;
+  border-color: #3a4048;
+  color: #eef1f4;
+}
+body:has(#theme-toggle:checked) input[type='text'],
+body:has(#theme-toggle:checked) input[type='date'],
+body:has(#theme-toggle:checked) input[type='email'] {
+  box-shadow: 2px 2px black inset, -2px -2px #454444 inset;
+  border: none;
+}
+
+body:has(#theme-toggle:checked) fieldset {
+  border-color: white;
+}
+
+body:has(#theme-toggle:checked) select:has(option[disabled]:checked) {
+  color: white;
+}
+
+body:has(#theme-toggle:checked) input[type='submit'] {
+  background-color: #3fae49;
+}
+body:has(#theme-toggle:checked) input[type='submit']:hover {
+  background-color: #3aa244;
+}

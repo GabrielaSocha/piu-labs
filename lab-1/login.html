@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="layout">
+    <main class="login-container">
+      <h1 class="login-title">Logowanie</h1>
+
+      <form class="login-form" action="https://httpbin.org/post" method="post">
+        <label for="email">Adres e-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="np. jan.kowalski@example.com"
+          required
+        />
+
+        <label for="password">Hasło</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Wpisz swoje hasło"
+          required
+        />
+
+        <button type="submit">Zaloguj się</button>
+      </form>
+
+      <a href=".." class="back-link">← Powrót</a>
+    </main>
+  </body>
+</html>
