@@ -1,0 +1,203 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+.theme-picker {
+  margin-bottom: 20px;
+  background-color: #f5f7dc;
+  border-radius: 8px;
+  border: 2px solid #d98849;
+}
+
+.container {
+  background-color: #f5f7dc;
+  border-radius: 8px;
+  border: 2px solid #d98849;
+  padding: 20px;
+}
+
+/* NIEBIESKI */
+body:has(input[value='blue']:checked) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: blue;
+    border-radius: 6px;
+    padding: 10px 0;
+    min-height: 40px;
+    margin: 0;
+    flex: 0 0 30%;
+
+    @media (max-width: 1024px) {
+      flex: none;
+      width: 60%;
+    }
+  }
+}
+/*CZERWONY*/
+body:has(input[value='red']:checked) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+
+    @media (max-width: 1024px) {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .item {
+    color: #fff;
+    background-color: red;
+    text-align: center;
+    border-radius: 6px;
+    margin: 0;
+    padding: 10px 0;
+    flex: 0 1 18%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+
+    @media (max-width: 1024px) {
+      flex: 0 1 47%;
+    }
+  }
+
+  .item:nth-child(2) {
+    order: 1;
+  }
+  .item:nth-child(3) {
+    order: 2;
+  }
+  .item:nth-child(1) {
+    order: 3;
+  }
+  .item:nth-child(4) {
+    order: 4;
+  }
+  .item:nth-child(5) {
+    order: 5;
+  }
+
+  .item:first-child {
+    position: relative;
+    font-weight: 700;
+    flex: 0 1 24%;
+    min-width: 200px;
+
+    @media (max-width: 1024px) {
+      flex: 0 1 100%;
+      margin-inline: 0;
+    }
+  }
+
+  .item:first-child::after {
+    content: 'Jestem większy i na środku!';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    font-size: 0.8em;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+/*ZIELONY*/
+
+body:has(input[value='green']:checked) {
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      gap: 20px;
+    }
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    background-color: green;
+    text-align: center;
+    border-radius: 6px;
+    margin: 0;
+    padding: 10px 0;
+    min-height: 40px;
+    flex: 0 1 18%;
+
+    @media (max-width: 1024px) {
+      flex: none;
+    }
+  }
+
+  .item:first-child::before,
+  .item:first-child::after {
+    content: '😀';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    line-height: 1;
+  }
+  .item:first-child::before {
+    left: 10px;
+  }
+  .item:first-child::after {
+    right: 10px;
+  }
+
+  .item:nth-child(5) {
+    @media (max-width: 1024px) {
+      width: 40%;
+    }
+  }
+  .item:nth-child(4) {
+    @media (max-width: 1024px) {
+      width: 55%;
+    }
+  }
+  .item:nth-child(3) {
+    @media (max-width: 1024px) {
+      width: 70%;
+    }
+  }
+  .item:nth-child(2) {
+    @media (max-width: 1024px) {
+      width: 85%;
+    }
+  }
+  .item:nth-child(1) {
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+}
