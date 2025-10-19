@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --orange: #f39c12;
+  --nav: #2a79a7;
+  --footer: #2ecc71;
+  --bg: #e9eef2;
+  --panel: #e7f8ea;
+  --text: #222;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: #232323;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'nav'
+    'main'
+    'aside'
+    'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto auto;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      'header header'
+      'nav    nav'
+      'main   aside'
+      'footer footer';
+    grid-template-rows: auto auto 1fr auto;
+  }
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--orange);
+  color: #fff;
+  padding: 12px 16px;
+}
+header h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+header .logo {
+  background: #fff;
+  color: #333;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-weight: 700;
+  min-width: 54px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 18px;
+}
+
+.logo::before {
+  content: 'Logo ';
+  font-size: 18px;
+  color: #333;
+}
+
+nav {
+  grid-area: nav;
+  background: var(--nav);
+  padding: 10px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+    gap: 22px;
+    padding-left: 16px;
+  }
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  grid-area: main;
+  background: var(--bg);
+  padding: 18px;
+}
+aside {
+  grid-area: aside;
+  background: var(--panel);
+  padding: 18px;
+}
+main h1,
+main h2,
+main h3,
+main p,
+aside h1,
+aside h2,
+aside h3,
+aside p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+aside div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  font-size: 42px;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 16px 24px;
+    justify-content: center;
+    justify-items: center;
+    align-content: start;
+    font-size: 44px;
+  }
+}
+
+footer {
+  grid-area: footer;
+  background: var(--footer);
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+}
