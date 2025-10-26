@@ -113,7 +113,7 @@ body {
 }
 body:has(#blue:checked) {
   img {
-    content: url(/lab-3/images/polo_b.png);
+    content: url(../images/polo_b.png);
     border: solid 2px var(--blue);
   }
   .product-name p:nth-child(2) {
@@ -129,7 +129,7 @@ body:has(#blue:checked) {
 }
 body:has(#red:checked) {
   img {
-    content: url(/lab-3/images/polo_r.png);
+    content: url(../images/polo_r.png);
     border: solid 2px var(--red);
   }
   .product-name p:nth-child(2) {
@@ -145,7 +145,7 @@ body:has(#red:checked) {
 }
 body:has(#green:checked) {
   img {
-    content: url(/lab-3/images/polo_g.png);
+    content: url(../images/polo_g.png);
     border: solid 2px var(--green);
   }
   .product-name p:nth-child(2) {
@@ -161,7 +161,7 @@ body:has(#green:checked) {
 }
 body:has(#yellow:checked) {
   img {
-    content: url(/lab-3/images/polo_y.png);
+    content: url(../images/polo_y.png);
     border: solid 2px var(--yellow);
   }
   .product-name p:nth-child(2) {
