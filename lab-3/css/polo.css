@@ -1,0 +1,204 @@
+:root {
+  --blue: #1f5a9d;
+  --red: #d22e2e;
+  --green: #388e3c;
+  --yellow: #fac12d;
+  --text-color: #423d3b;
+  --bg: #eeeeee;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  margin: auto;
+  color: var(--text-color);
+  background-color: var(--bg);
+  box-sizing: border-box;
+  width: min(100%, calc(500px + 40px + 300px + 40px));
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-inline: auto;
+  max-height: 514px;
+  width: min(300px, 100%);
+}
+#description {
+  font-size: 15px;
+  margin-top: 0px;
+}
+.product-name {
+  display: flex;
+  gap: 30px;
+}
+.product-name p:nth-child(1) {
+  font-weight: 800;
+  font-size: 20px;
+}
+.product-name p:nth-child(2) {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  margin-left: 50px;
+  input {
+    appearance: none;
+    height: 35px;
+    width: 35px;
+    outline: solid 2px var(--text-color);
+    border-radius: 100%;
+    transition: 0.2s all linear;
+  }
+  input:checked {
+    border: solid 4px var(--bg);
+  }
+  input:nth-child(1) {
+    background-color: var(--blue);
+  }
+  input:nth-child(2) {
+    background-color: var(--red);
+  }
+  input:nth-child(3) {
+    background-color: var(--green);
+  }
+  input:nth-child(4) {
+    background-color: var(--yellow);
+  }
+}
+.size-picker {
+  font-weight: 800;
+  margin-left: 25px;
+  label {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 16px;
+    background: none;
+    color: var(--text-color);
+    transition: 0.2s all linear;
+  }
+  input {
+    appearance: none;
+    height: 45px;
+    width: 45px;
+    outline: solid 2px var(--text-color);
+    border-radius: 4px;
+    transition: 0.2s all linear;
+  }
+  input:checked + span {
+    color: white;
+  }
+}
+body:has(#blue:checked) {
+  img {
+    content: url(/lab-3/images/polo_b.png);
+    border: solid 2px var(--blue);
+  }
+  .product-name p:nth-child(2) {
+    background-color: var(--blue);
+  }
+  button {
+    background-color: var(--blue);
+  }
+  .size-picker input:checked {
+    background-color: var(--blue);
+    color: white;
+  }
+}
+body:has(#red:checked) {
+  img {
+    content: url(/lab-3/images/polo_r.png);
+    border: solid 2px var(--red);
+  }
+  .product-name p:nth-child(2) {
+    background-color: var(--red);
+  }
+  button {
+    background-color: var(--red);
+  }
+  .size-picker input:checked {
+    background-color: var(--red);
+    color: white;
+  }
+}
+body:has(#green:checked) {
+  img {
+    content: url(/lab-3/images/polo_g.png);
+    border: solid 2px var(--green);
+  }
+  .product-name p:nth-child(2) {
+    background-color: var(--green);
+  }
+  button {
+    background-color: var(--green);
+  }
+  .size-picker input:checked {
+    background-color: var(--green);
+    color: white;
+  }
+}
+body:has(#yellow:checked) {
+  img {
+    content: url(/lab-3/images/polo_y.png);
+    border: solid 2px var(--yellow);
+  }
+  .product-name p:nth-child(2) {
+    background-color: var(--yellow);
+  }
+  button {
+    background-color: var(--yellow);
+  }
+  .size-picker input:checked {
+    background-color: var(--yellow);
+    color: white;
+  }
+}
+
+img {
+  width: min(500px, 100%);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+#price {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+button {
+  padding: 20px;
+  display: flex;
+  font-size: large;
+  font-weight: 700;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  border: solid 2px var(--text-color);
+}
