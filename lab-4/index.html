@@ -2,11 +2,97 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Lab 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban – lab-4</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Lab 4</h1>
-    <a href="..">Powrót</a>
+    <header class="site-header">
+      <h1>Moja tablica Kanban</h1>
+    </header>
+
+    <main id="app" class="app">
+      <section class="board">
+        <!-- Kolumna 1 -->
+        <section class="column" data-col="todo">
+          <header class="col-header" data-col="todo">
+            <div class="col-header-top">
+              <div class="col-title">Do zrobienia</div>
+              <span class="badge" id="count-todo">0</span>
+            </div>
+            <div class="col-actions">
+              <button class="btn accent" data-action="add" data-col="todo">
+                + Dodaj kartę
+              </button>
+              <button
+                class="btn green"
+                data-action="color-column"
+                data-col="todo"
+              >
+                Koloruj kolumnę
+              </button>
+              <button class="btn" data-action="sort" data-col="todo">
+                Sortuj A→Z
+              </button>
+            </div>
+          </header>
+          <div class="cards" id="list-todo" data-col="todo"></div>
+        </section>
+
+        <!-- Kolumna 2 -->
+        <section class="column" data-col="doing">
+          <header class="col-header" data-col="doing">
+            <div class="col-header-top">
+              <div class="col-title">W trakcie</div>
+              <span class="badge" id="count-doing">0</span>
+            </div>
+            <div class="col-actions">
+              <button class="btn accent" data-action="add" data-col="doing">
+                + Dodaj kartę
+              </button>
+              <button
+                class="btn green"
+                data-action="color-column"
+                data-col="doing"
+              >
+                Koloruj kolumnę
+              </button>
+              <button class="btn" data-action="sort" data-col="doing">
+                Sortuj A→Z
+              </button>
+            </div>
+          </header>
+          <div class="cards" id="list-doing" data-col="doing"></div>
+        </section>
+
+        <!-- Kolumna 3 -->
+        <section class="column" data-col="done">
+          <header class="col-header" data-col="done">
+            <div class="col-header-top">
+              <div class="col-title">Zrobione</div>
+              <span class="badge" id="count-done">0</span>
+            </div>
+            <div class="col-actions">
+              <button class="btn accent" data-action="add" data-col="done">
+                + Dodaj kartę
+              </button>
+              <button
+                class="btn green"
+                data-action="color-column"
+                data-col="done"
+              >
+                Koloruj kolumnę
+              </button>
+              <button class="btn" data-action="sort" data-col="done">
+                Sortuj A→Z
+              </button>
+            </div>
+          </header>
+          <div class="cards" id="list-done" data-col="done"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="js/app.js" defer></script>
   </body>
 </html>
