@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab-5 – Kształty</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Lab-5 – Kształty</h1>
+    </header>
+
+    <main class="app">
+      <section class="board">
+        <div class="column">
+          <div class="col-header">
+            <div class="col-header-top">
+              <div class="col-title">Kształty</div>
+            </div>
+            <div class="col-actions">
+              <button class="btn accent" id="btn-add-square">
+                Dodaj kwadrat
+              </button>
+              <button class="btn accent" id="btn-add-circle">
+                Dodaj kółko
+              </button>
+              <button class="btn green" id="btn-recolor-squares">
+                Przekoloruj kwadraty
+              </button>
+              <button class="btn green" id="btn-recolor-circles">
+                Przekoloruj kółka
+              </button>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="shapes-wrapper">
+              <div class="counters">
+                <span>Kwadraty: <strong id="count-squares">0</strong></span>
+                <span>Kółka: <strong id="count-circles">0</strong></span>
+                <span>Razem: <strong id="count-total">0</strong></span>
+              </div>
+
+              <div id="shapes-list"></div>
+
+              <p class="hint">Kliknij kształt, aby go usunąć.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
