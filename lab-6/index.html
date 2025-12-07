@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ajax Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ajax Demo</h1>
+
+      <div class="buttons">
+        <button id="loadBtn">Pobierz dane</button>
+        <button id="errorBtn">Wywołaj błąd</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <div id="loader" class="hidden">⏳ Ładowanie...</div>
+      <div id="error" class="error"></div>
+
+      <ul id="list"></ul>
+    </div>
+    <script src="ajax.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
