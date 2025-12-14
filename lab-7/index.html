@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lab-7 – Karta produktu</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Zadania Lab-7 — Karta produktu</h1>
+    </header>
+
+    <main class="grid">
+      <product-card product-id="TSH-001">
+        <img slot="image" src="./images/tshirtbasic.jpg" alt="T-shirt basic" />
+        <span slot="promo">-20%</span>
+        <span slot="name">T-shirt Basic</span>
+        <span slot="price">79,99 zł</span>
+
+        <ul slot="colors" class="chips">
+          <li>Czarny</li>
+          <li>Biały</li>
+          <li>Niebieski</li>
+        </ul>
+
+        <ul slot="sizes" class="chips">
+          <li>S</li>
+          <li>M</li>
+          <li>L</li>
+          <li>XL</li>
+        </ul>
+      </product-card>
+
+      <product-card product-id="JCK-204">
+        <img
+          slot="image"
+          src="./images/kurtkapuchowa.jpg"
+          alt="Kurtka puchowa"
+        />
+        <span slot="name">Kurtka Puchowa</span>
+        <span slot="price">399,00 zł</span>
+
+        <ul slot="sizes" class="chips">
+          <li>M</li>
+          <li>L</li>
+          <li>XL</li>
+        </ul>
+      </product-card>
+
+      <product-card product-id="DRS-777">
+        <img slot="image" src="./images/sukienkamidi.jpg" alt="Sukienka midi" />
+        <span slot="promo">Nowość</span>
+        <span slot="name">Sukienka Midi</span>
+        <span slot="price">219,90 zł</span>
+
+        <ul slot="colors" class="chips">
+          <li>Czerwona</li>
+          <li>Zielona</li>
+        </ul>
+      </product-card>
+
+      <product-card product-id="SNE-510">
+        <img slot="image" src="./images/buty.jpg" alt="Buty" />
+        <span slot="name">Sneakersy Street</span>
+        <span slot="price">289,00 zł</span>
+
+        <ul slot="colors" class="chips">
+          <li>Szary</li>
+          <li>Biały</li>
+        </ul>
+
+        <ul slot="sizes" class="chips">
+          <li>40</li>
+          <li>41</li>
+          <li>42</li>
+          <li>43</li>
+        </ul>
+      </product-card>
+
+      <product-card product-id="HAT-090">
+        <img slot="image" src="./images/czapka.jpg" alt="Czapka" />
+        <span slot="promo">2 w cenie 1</span>
+        <span slot="name">Czapka Zimowa</span>
+        <span slot="price">49,90 zł</span>
+      </product-card>
+
+      <product-card product-id="BAG-333">
+        <img slot="image" src="./images/torba.jpg" alt="Torba" />
+        <span slot="name">Torba Shopper</span>
+        <span slot="price">119,00 zł</span>
+
+        <ul slot="colors" class="chips">
+          <li>Beż</li>
+          <li>Czarny</li>
+          <li>Brąz</li>
+        </ul>
+      </product-card>
+    </main>
+  </body>
+</html>
