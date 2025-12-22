@@ -1,239 +1,255 @@
-const template = document.createElement('template');
-template.innerHTML = `
+const tpl = document.createElement('template');
+tpl.innerHTML = `
   <style>
-    :host {
-      display: block;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    :host { display:block; }
 
-      /* fallbacki */
-      --bg: #0f172a;
-      --panel: #111827;
-      --panel-2: #0b1022;
-      --muted: #94a3b8;
-      --text: #e5e7eb;
-      --accent: #6366f1;
-      --danger: #ef4444;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    .card {
-      width: 320px;
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-    }
-    .media {
-      height: 220px;          
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    ::slotted([slot="image"]) {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;        
-      display: block;
-    }
-
-    .promo {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 2;
-      background: #0b1022;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-      display: none;
-    }
-
-    .content {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex-grow: 1;
-    }
-
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .name {
-      font-size: 16px;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .price {
-      font-size: 15px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    details.dropdown {
-      border: 1px solid rgba(255,255,255,0.08);
+    .card{
       background: rgba(255,255,255,0.04);
-      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
       overflow: hidden;
-    }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 10px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "▾";
-      opacity: 0.7;
-      transition: transform 0.15s ease;
-    }
-
-    details[open] summary::after {
-      transform: rotate(-180deg);
-    }
-
-    .slotWrap {
-      padding: 10px 12px 12px;
-      border-top: 1px solid rgba(255,255,255,0.06);
       display: grid;
-      gap: 8px;
+      grid-template-rows: 190px auto;
+      min-height: 320px;
     }
 
-    .emptyChoice {
-      border: 1px dashed rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
+    .media{ position:relative; background: rgba(255,255,255,0.04); }
+    .media img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* pokazuje cały produkt */
+      display: block;
+      background: rgba(255,255,255,0.06); /* delikatne tło pod zdjęciem */
     }
 
-    .footer {
-      margin-top: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
 
-    button {
-      border: 1px solid rgba(99, 102, 241, 0.4);
-      background: rgba(99, 102, 241, 0.15);
-      color: var(--text);
-      padding: 10px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.15s ease, transform 0.06s ease;
-    }
+    .promo{
+      position: absolute;
+      left: 10px;
+      top: 10px;
 
-    button:hover {
-      background: rgba(99, 102, 241, 0.25);
-    }
-
-    button:active {
-      transform: translateY(1px);
-    }
-
-    .hint {
       font-size: 12px;
-      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.2px;
+
+      padding: 6px 10px;
+      border-radius: 999px;
+
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.65);              /* ciemne tło */
+      border: 1px solid rgba(255, 255, 255, 0.14);     /* delikatna ramka */
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+
+      display: none;
+      backdrop-filter: blur(8px);
+    }
+
+    .promo.show{ display:inline-flex; }
+
+    .content{ padding:12px; display:flex; flex-direction:column; gap:10px; }
+
+    h3{ margin:0; font-size:15px; font-weight:900; letter-spacing:0.2px; line-height:1.2; }
+
+    .row{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+
+    .price{ font-weight:900; color: var(--accent-2); font-size:14px; }
+
+    .muted{ color: var(--muted); font-size:12px; font-weight:700; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-start; }
+
+    ::slotted(ul){
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+
+    ::slotted(ul li){
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .actions{ display:flex; gap:10px; margin-top:auto; }
+
+    button.primary{
+      flex:1;
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: white;
+    }
+    button.primary:hover{
+      background: rgba(99, 102, 241, 0.22);
+      border-color: rgba(99, 102, 241, 0.55);
     }
   </style>
 
-  <div class="card">
+  <article class="card">
     <div class="media">
+      <img alt="" />
       <div class="promo"><slot name="promo"></slot></div>
-      <slot name="image"></slot>
     </div>
 
     <div class="content">
-      <div class="top">
-        <div class="name"><slot name="name"></slot></div>
-        <div class="price"><slot name="price"></slot></div>
+      <div class="row">
+        <h3><slot name="name"></slot></h3>
+        <div class="price"></div>
       </div>
 
-      <details class="dropdown">
-        <summary>Kolory</summary>
-        <div class="slotWrap">
-          <slot name="colors">
-            <div class="emptyChoice">Jeden kolor</div>
-          </slot>
-        </div>
-      </details>
+      <div class="row">
+        <div class="muted">Kolory</div>
+        <div class="muted">Rozmiary</div>
+      </div>
 
-      <details class="dropdown">
-        <summary>Rozmiary</summary>
-        <div class="slotWrap">
-          <slot name="sizes">
-            <div class="emptyChoice">Jeden rozmiar</div>
-          </slot>
-        </div>
-      </details>
+      <div class="row">
+        <div class="chips"><slot name="colors"></slot></div>
+        <div class="chips"><slot name="sizes"></slot></div>
+      </div>
 
-      <div class="footer">
-        <button type="button">Do koszyka</button>
+      <div class="actions">
+        <button class="primary" id="addBtn" type="button">Do koszyka</button>
       </div>
     </div>
-  </div>
+  </article>
 `;
 
-class ProductCard extends HTMLElement {
+export class ProductCard extends HTMLElement {
+    static observedAttributes = [
+        'pid',
+        'name',
+        'price',
+        'currency',
+        'image',
+        'promo',
+    ];
+
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.appendChild(tpl.content.cloneNode(true));
 
-        this.promoBox = this.shadowRoot.querySelector('.promo');
-        this.promoSlot = this.shadowRoot.querySelector('slot[name="promo"]');
-        this.button = this.shadowRoot.querySelector('button');
+        this._product = null;
+
+        this.$img = this.shadowRoot.querySelector('img');
+        this.$price = this.shadowRoot.querySelector('.price');
+        this.$promo = this.shadowRoot.querySelector('.promo');
+        this.$addBtn = this.shadowRoot.querySelector('#addBtn');
+
+        this.$addBtn.addEventListener('click', () => this._emitAddToCart());
+    }
+
+    set product(value) {
+        this._product = value;
+        this._syncFromProduct();
+    }
+    get product() {
+        return this._product ?? this._productFromAttrs();
     }
 
     connectedCallback() {
-        const updatePromo = () => {
-            const hasPromo = this.promoSlot
-                .assignedNodes({ flatten: true })
-                .some((n) =>
-                    n.nodeType === Node.TEXT_NODE ? n.textContent.trim() : true
-                );
+        this._updatePromoVisibility();
+        this._syncFromAttrs();
+    }
 
-            this.promoBox.style.display = hasPromo ? 'inline-flex' : 'none';
+    attributeChangedCallback() {
+        this._syncFromAttrs();
+        this._updatePromoVisibility();
+    }
+
+    _syncFromProduct() {
+        if (!this._product) return;
+        this.setAttribute('pid', this._product.id ?? '');
+        this.setAttribute('name', this._product.name ?? '');
+        this.setAttribute('price', String(this._product.price ?? ''));
+        this.setAttribute('currency', this._product.currency ?? 'PLN');
+        this.setAttribute('image', this._product.image ?? '');
+        if (this._product.promo)
+            this.setAttribute('promo', this._product.promo);
+        else this.removeAttribute('promo');
+
+        this._renderBasics(this._product);
+    }
+
+    _syncFromAttrs() {
+        const p = this._productFromAttrs();
+        this._renderBasics(p);
+    }
+
+    _productFromAttrs() {
+        const pid = this.getAttribute('pid') || '';
+        const name = this.getAttribute('name') || '';
+        const priceRaw = this.getAttribute('price') || '0';
+        const currency = this.getAttribute('currency') || 'PLN';
+        const image = this.getAttribute('image') || '';
+        const promo = this.getAttribute('promo') || '';
+
+        const price = Number(String(priceRaw).replace(',', '.'));
+        return {
+            id: pid,
+            name,
+            price: Number.isFinite(price) ? price : 0,
+            currency,
+            image,
+            promo,
+        };
+    }
+
+    _renderBasics(p) {
+        // obraz
+        this.$img.src = p.image || '';
+        this.$img.alt = p.name ? `Zdjęcie: ${p.name}` : 'Zdjęcie produktu';
+
+        // cena
+        const formatted = this._formatPrice(p.price, p.currency);
+        this.$price.textContent = formatted || '';
+    }
+
+    _updatePromoVisibility() {
+        const hasPromoAttr = Boolean(this.getAttribute('promo'));
+        const hasPromoSlot = Boolean(this.querySelector('[slot="promo"]'));
+        this.$promo.classList.toggle('show', hasPromoAttr || hasPromoSlot);
+    }
+
+    _formatPrice(price, currency) {
+        try {
+            if (!Number.isFinite(price)) return '';
+            const loc = 'pl-PL';
+            if (currency === 'PLN') {
+                return new Intl.NumberFormat(loc, {
+                    style: 'currency',
+                    currency: 'PLN',
+                }).format(price);
+            }
+            return `${price.toFixed(2)} ${currency}`;
+        } catch {
+            return `${price} ${currency ?? ''}`.trim();
+        }
+    }
+
+    _emitAddToCart() {
+        const p = this.product;
+
+        const payload = {
+            id: p.id,
+            name: p.name,
+            price: p.price,
+            currency: p.currency ?? 'PLN',
         };
 
-        this.promoSlot.addEventListener('slotchange', updatePromo);
-        updatePromo();
+        this.dispatchEvent(
+            new CustomEvent('add-to-cart', {
+                detail: payload,
+                bubbles: true,
+                composed: true,
+            })
+        );
     }
 }
 
 customElements.define('product-card', ProductCard);
-export default ProductCard;

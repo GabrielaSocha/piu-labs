@@ -1,0 +1,57 @@
+[
+  {
+    "id": "p1",
+    "name": "Koszulka Basic",
+    "price": 79.99,
+    "currency": "PLN",
+    "image": "./images/tshirtbasic.jpg",
+    "colors": ["Czarny", "Biały", "Szary"],
+    "sizes": ["S", "M", "L", "XL"],
+    "promo": "10% taniej"
+  },
+  {
+    "id": "p2",
+    "name": "Czapka ziomowa",
+    "price": 169.0,
+    "currency": "PLN",
+    "image": "./images/czapka.jpg",
+    "colors": ["Granatowy", "Czarny"],
+    "sizes": ["M", "L", "XL"]
+  },
+  {
+    "id": "p3",
+    "name": "Torba shopper",
+    "price": 199.99,
+    "currency": "PLN",
+    "image": "./images/torba.jpg",
+    "colors": ["Niebieski", "Grafit"],
+    "sizes": ["S", "M", "L"]
+  },
+  {
+    "id": "p4",
+    "name": "Kurtka puchowa",
+    "price": 289.5,
+    "currency": "PLN",
+    "image": "./images/kurtkapuchowa.jpg",
+    "colors": ["Oliwkowy", "Czarny"],
+    "sizes": ["M", "L"],
+    "promo": "Ostatnie sztuki!"
+  },
+  {
+    "id": "p5",
+    "name": "Sukienka midi",
+    "price": 149.99,
+    "currency": "PLN",
+    "image": "./images/sukienkamidi.jpg",
+    "colors": ["Kremowy", "Różowy"],
+    "sizes": ["XS", "S", "M", "L"]
+  },
+  {
+    "id": "p6",
+    "name": "Buty",
+    "price": 49.99,
+    "currency": "PLN",
+    "image": "./images/buty.jpg",
+    "colors": ["Czarny", "Beżowy"]
+  }
+]
